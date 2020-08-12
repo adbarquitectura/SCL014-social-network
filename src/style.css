@@ -99,6 +99,7 @@ h5 {
     margin: 2rem auto auto auto;
     font-weight: 500;
 }
+
 a {
     text-decoration: none;
     color: #2979FF;
@@ -242,6 +243,7 @@ a {
 #barra-inferior {
     width: 100%;
     position: fixed;
+    left: 0;
     bottom: 0;
     clear: both;
     box-sizing: border-box;
@@ -434,9 +436,7 @@ button {
 
 .img-cuadrada{
     margin:auto;
-    width: 95%;
-    height: auto;
-    
+    max-height: 280px;
 }
 
 .like-comment{
@@ -519,18 +519,23 @@ button {
 #info-viajero {
     display:flex;
 }
+#datos-viajero {
+    height: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
 .user-name {
     font-family: 'roboto';
     font-size: 1.5rem;
     color: #4F4F4F;
-    margin: 2rem auto auto auto;
+    margin: .8rem auto auto auto;
     text-align: center;
 }
 .user-info {
     font-family: 'roboto';
-    font-size: 1rem;
+    font-size: .9rem;
     color: #4F4F4F;
-    margin: .5rem auto auto auto;
+    margin: .5rem auto .5rem auto;
     text-align: center;
 }
 .img-profile {
@@ -551,84 +556,116 @@ button {
     color: #4F4F4F;
     align-self: auto;
 }
-
-#intereses { 
-    margin-top:auto;    
-    width: auto; 
-    flex-wrap: wrap;
-} 
-
+#intereses {
+    height: auto;
+    box-sizing: border-box;
+    display: center;
+    overflow: auto;
+}
 #boxdeinteres {
     height: auto;
     box-sizing: border-box;
-    margin:auto;
-    text-align: center; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: .2rem auto .2rem auto;
+    display: flex;
+    align-self:auto;
 }
-
-#intereses-title {
-    display: auto;
-    justify-content: auto;
-    align-items: auto;
+#titulo-interes {
+    width: auto;
+    height: auto;
+    padding: .5rem;
+    margin: auto;
+    display: flex;
+    background: #ffffff6a;
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 1 rem;;
 }
-
-#freinds{ 
-    margin-top: auto;    
-    width: auto; 
+#freinds{
+    margin-top: auto;
+    width: auto;
     overflow: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
-    padding: 1.5rem; 
+    padding: 1rem;
 }
-
-#mostrar-amigos{  
+#mostrar-amigos{
     display: flex;
     height: auto;
     box-sizing: border-box;
     margin:auto;
     align-self:auto;
 }
-
 #picture-myfreinds{
     width: 4rem;
     height: 4em;
     border-radius: 50%;
     border: solid #ffff 2px;
-    margin: .2rem auto .2rem 5%;
+    margin: .2rem auto .2rem auto;
     display: flex;
 }
-
 #container-mypost{
-    /* position: fixed;  */
-    margin-top: 1%;    
-    width: 90%; 
+    position: auto;
+    margin-top: 1%;
+    width: auto;
     box-sizing: border-box;
-    padding: 1.5rem;
+    padding: 1rem;
+    height: auto;
+    overflow: auto;
 }
-
 #boxmypost {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 40%;
+    width: auto;
     margin:auto;
-    text-align: center;
+    align-self:auto;
+    vertical-align: middle;
 }
-
+#mypost-note{
+    display: flex;
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    background: #C5E0EF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 0.5rem;
+}
+.img-mypost{
+    margin: 2.5%;
+    box-sizing: border-box;
+    width: 95%;
+    height: auto;
+}
 .mylike-comment{
     font-family: 'roboto';
     font-size: .7rem;
     color: #4F4F4F;
-    margin-right: .1rem
+    align-items: left;
 }
+
+
+.container-left {
+    display : none;
+}
+
+.container-right {
+    display : none;
+}
+
+
+
 
 /* Desktop */
 @media screen and (min-width: 700px) and (max-width: 1600px) {
     .body {
         background-image: url("./img/backimg.jpg");
         background-attachment: fixed;
-        margin: 0;
+        margin: 0;        
         background-size: cover;
-    }
+        overflow-y: hidden;
+    }   
 
     #login{
         background: rgba(255, 255, 255, 0.45);
@@ -705,6 +742,7 @@ button {
 
     .modal {
         overflow: hidden;
+        
     }
     .modal-content {
         background: linear-gradient(180deg, #C5E0EF 0%, #C5E0EF 0.01%, #D9EAF4 39.06%, rgba(227, 240, 247, 0.6) 70.83%, rgba(255, 255, 255, 0.24) 100%, rgba(255, 255, 255, 0.2) 100%), #FFFFFF;
@@ -735,6 +773,12 @@ button {
         font-weight: bold;
     }
 
+    .logo {
+        margin: auto;
+        width: 15%;
+        height: auto;
+    }
+
     .close-modal:hover,
     .close-modal:focus {
         color: #000;
@@ -751,5 +795,111 @@ button {
         cursor: pointer;
         color: #4F4F4F;     
     }
+    
+    
+    #wall {
+        width: 30%;
+        margin: 5% auto auto auto;
+        position: fixed;
+        left: 35%; 
+           
+    }
+    .public {       
+        width: 90%;
+        padding: .2rem;
+        margin: 0.2rem auto .2rem auto; 
+    }
+    
+    #container-post {
+        width: 40%;
+        margin: 23% auto 1% 30%;
+        display: inline-grid;
+        scroll-snap-align: end;          
+        height: 520px;        
+        scroll-padding-top: 5%;
+        padding: 0;        
+        /*padding: 0.5rem 8rem 0.5rem 8rem;*/
+    }
+    #post-note{
+        border-radius: 7px;
+    }
+    #post-note div {        
+        padding: .3rem 0rem 0rem 0rem; 
+    }
+  
+    .container-left {
+        display: inline-grid;
+        width: 27%;
+        margin: 7% auto auto auto;
+        left: 0;
+        position: fixed;
+    }
+    
+    .container-right {
+        display: inline-grid;
+        width: 27%;
+        margin: 7% auto auto auto;
+        position: fixed;
+        right: 0;
+    }
+   
+    /* barra inferior */
 
+
+    #barra {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, #C5E0EF 0%, #C5E0EF 0.01%, #D9EAF4 39.06%, rgba(227, 240, 247, 0.6) 70.83%, rgba(255, 255, 255, 0.24) 100%, rgba(255, 255, 255, 0.2) 100%), #FFFFFF;
+    transform: rotate(180deg);
+}    
+    #barra span>i {
+        display: none;
+    }
+
+    .head {
+        position: fixed;
+        top: 0;
+        padding: 0.5rem;
+    }
+    .button2 {       
+        margin: 0 auto auto auto;
+        display: none;      
+    }
+    
+    .profile-picture {
+    display: none;
+    }
+    .fa-chevron-left:before {
+        display: none;
+    }
+    
+    #destinos{
+        display: inline-block;
+        flex-direction: column;
+        height: 500px;
+        overflow-y: scroll;
+        scroll-padding-top: 10%;
+        scroll-snap-align: start;
+    }
+    #destinos::-webkit-scrollbar {
+        width: 8px;     
+        height: 8px;   
+        display: none; 
+    }
+
+    #destiny-img:hover {
+        transform: scale(1.1,1.1);
+    }
+    #info-viajero{
+        display: block;
+    }
+    .img-cuadrada{
+        /*border: solid #ffff 3px;*/
+        border-radius: 7px;
+        width: 90%;
+        max-height: 400px;
+        object-fit: cover;
+        /*margin: 0.1rem 0.1rem 0.1rem 0.1rem;*/
+    }
+   
 }
