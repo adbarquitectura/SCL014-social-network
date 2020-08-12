@@ -1,34 +1,24 @@
-
-const validator = () => {
-
-    const btnSignIn = document.getElementById('ingreso') 
-    const emailSignIn = document.querySelector('#mail');
-    const passwordSignIn = document.querySelector('#password'); 
-
-    if (emailSignIn.value === '' || passwordSignIn.value === '') {
-        btnSignIn.disabled = true;
-        console.log(' entra al if'); 
+//valida que los inputs de iniciar sesion no esten vacios
+const validator = (signInEmailValue, signInPasswordValue) => {
+    if (signInEmailValue.trim() === '' || signInPasswordValue.trim() === '') {
+        return true;
     }
     else {
-        btnSignIn.disabled = false;
-        console.log('entra el else');
+        return false;
     }
 };
- 
-const validatorRegister = () => {
 
-    const emailRegister = document.getElementById('email-register');
-    const passwordRegister = document.getElementById('password-register');
-    const btnRegister = document.getElementById('btn-register');
+//valida que los inputs de registro no esten vacios y contengan valores validos
+const validatorRegister = (emailRegisterValue, passwordRegisterValue, emailRegisterValid, passwordRegisterValid) => {
 
-    if (emailRegister.value === '' || passwordRegister.value === '') {
-        btnRegister.disabled = true;
+    if (emailRegisterValue === '' || passwordRegisterValue === '') {
+        return true;
     }
-     if (emailRegister.validity.valid && passwordRegister.validity.valid) {
-        btnRegister.disabled = false;
-    } 
+    if (emailRegisterValid && passwordRegisterValid) {
+        return false;
+    }
     else {
-        btnRegister.disabled = true;
+        return true;
     }
 };
 

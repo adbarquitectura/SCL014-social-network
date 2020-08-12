@@ -34,38 +34,42 @@ input {
     color: #ffffff;
 }
 
-#msg-error {
+#sign-wrong-password {
     width:70%;
     margin:auto;
     padding: .8rem .3rem .3rem .3rem; 
 }
-#msg-error>span{
+#sign-wrong-password>span{
     font-family: 'Roboto';
     color: #ffffff;
 }
-#msgRegister-error {
+#sign-email-not-found {
+    width:70%;
+    margin:auto;
+    padding: .8rem .3rem .3rem .3rem; 
+}
+#sign-email-not-found>span{
+    font-family: 'Roboto';
+    color: #ffffff;
+}
+#weak-password {
     width: 70%;
     margin:auto;
     padding: .8rem 0 .3rem 0;
 }
-#msgRegister-error>span {
+#weak-password>span {
     font-family: 'Roboto';
     align-items: center;
 }
-/*
-input::first-line {
-    margin-top: 2rem;
-}
-*/
-
 
 /*titulos*/
 
 h2 {
     color: #333333;
     font-family: 'Roboto', sans-serif;
-    text-align: center;
-    font-size: 1rem;
+    text-align: start;
+    margin: 0.5rem 0 0.5rem 1rem;
+    font-size: 0.9rem;
 }
 
 h4 {
@@ -104,11 +108,6 @@ a {
     text-decoration: none;
     color: #2979FF;
 }
-
-/*::placeholder {
-    color: #ffff;
-    font-weight: 300;
-}*/
 
 .logo-inicio {
     width: 55%;
@@ -186,7 +185,6 @@ a {
 }
 
 .public {
-    display: flex;
     border: solid 1px #004ECB;
     border-radius: 10px;
     width: 80%;
@@ -198,7 +196,7 @@ a {
 
 .inputpublic {
     border: #ffffff;
-    width: 70%;
+    width: 90%;
     margin: auto 0 auto 5%;
     text-align: center;
     padding: .5rem;
@@ -214,10 +212,34 @@ a {
     font-size: 1rem;
     color: #004ECB;
     margin: 1% 0 5% 75%;
+    cursor: pointer;
+}
+#load {
+    display: flex;
+    justify-content: flex-end;
+}
+.load-picture{
+    font-family: 'roboto';
+    font-size: .9rem;
+    color:#4F4F4F;
+}
+input[type="file"] {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+}
+.flex {
+    display:flex;
+}
+#load-photo{
+    right: 0;
+    margin: auto 0 auto auto;
+    padding: 0;
+    cursor: pointer;
 }
 
 .button2 {
-    width: 90%;
+    width: 80%;
     height: 3rem;
     background: #2979FF;
     border-radius: 10px;
@@ -229,6 +251,9 @@ a {
     font-weight: 500;
 }
 
+.disabled {
+    opacity:50%
+}
 /*logo de las secciones de la app */
 
 .logo {
@@ -436,14 +461,21 @@ button {
 
 .img-cuadrada{
     margin:auto;
+<<<<<<< HEAD
     max-height: 280px;
+=======
+    width: 95%;
+    max-height: 280px;
+    
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 
 .like-comment{
     font-family: 'roboto';
     font-size: 1rem;
     color: #4F4F4F;
-    margin-right: .1rem
+    margin-right: .1rem;
+    cursor: pointer;
 }
 #picture-perfil-post{
     width: 2.4rem;
@@ -474,6 +506,7 @@ button {
 .icon {
     font-size: 1.2rem;
     color:#4F4F4F;
+    cursor: pointer;
 }
 
 .text {
@@ -521,13 +554,20 @@ button {
 }
 #datos-viajero {
     height: auto;
+<<<<<<< HEAD
     flex-wrap: wrap;
     display: flex;
+=======
+    display: flow-root;
+    line-height: 1.5rem;
+    margin-top: 7%;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 .user-name {
     font-family: 'roboto';
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #4F4F4F;
+<<<<<<< HEAD
     margin: .8rem auto auto auto;
     text-align: center;
 }
@@ -537,6 +577,16 @@ button {
     color: #4F4F4F;
     margin: .5rem auto .5rem auto;
     text-align: center;
+=======
+    margin: 0 auto auto 0;
+}
+.user-info {
+    font-family: 'roboto';
+    font-size: .8rem;
+    color: #4F4F4F;
+    margin: 0 auto 0 auto;
+    text-align: start;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 .img-profile {
     width: 7rem;
@@ -548,7 +598,8 @@ button {
     text-align: center;
 }
 #iconos{
-    margin-left:5%;
+    text-align: start;
+    margin: 0.5rem auto 0.5rem 1rem;
 }
 .iconos-profile {
     margin-left:1%;
@@ -556,12 +607,20 @@ button {
     color: #4F4F4F;
     align-self: auto;
 }
+<<<<<<< HEAD
 #intereses {
+=======
+#intereses { 
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
     height: auto;
     box-sizing: border-box;
     display: center;
     overflow: auto;
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 #boxdeinteres {
     height: auto;
     box-sizing: border-box;
@@ -570,10 +629,15 @@ button {
     margin: .2rem auto .2rem auto;
     display: flex;
     align-self:auto;
+<<<<<<< HEAD
+=======
+    padding: 0.4rem;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 #titulo-interes {
     width: auto;
     height: auto;
+<<<<<<< HEAD
     padding: .5rem;
     margin: auto;
     display: flex;
@@ -592,6 +656,26 @@ button {
     padding: 1rem;
 }
 #mostrar-amigos{
+=======
+    padding: .5rem; 
+    margin: auto;
+    display: flex;
+    background: #C5E0EF;
+    color: #004ECB;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 0.8rem;;
+}
+#freinds{ 
+    margin-top: auto;    
+    width: auto; 
+    overflow: auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    padding: 0.2rem; 
+}
+#mostrar-amigos{  
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
     display: flex;
     height: auto;
     box-sizing: border-box;
@@ -608,15 +692,23 @@ button {
 }
 #container-mypost{
     position: auto;
+<<<<<<< HEAD
     margin-top: 1%;
     width: auto;
     box-sizing: border-box;
     padding: 1rem;
+=======
+    margin-top: 1%;    
+    width: 100%; 
+    box-sizing: border-box;
+    padding: 0.2rem;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
     height: auto;
     overflow: auto;
 }
 #boxmypost {
     display: flex;
+<<<<<<< HEAD
     width: auto;
     margin:auto;
     align-self:auto;
@@ -625,6 +717,16 @@ button {
 #mypost-note{
     display: flex;
     width: auto;
+=======
+    width: 100%;
+    margin:auto;
+    justify-content: space-around;
+}
+#mypost-note{
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
     height: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
@@ -636,7 +738,12 @@ button {
     margin: 2.5%;
     box-sizing: border-box;
     width: 95%;
+<<<<<<< HEAD
     height: auto;
+=======
+    height: 100px;
+    object-fit: cover;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 .mylike-comment{
     font-family: 'roboto';
@@ -644,10 +751,19 @@ button {
     color: #4F4F4F;
     align-items: left;
 }
+<<<<<<< HEAD
 
 
 .container-left {
     display : none;
+=======
+.container-left {
+    display : none;
+}
+
+.container-right {
+    display : none;
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5
 }
 
 .container-right {
@@ -659,6 +775,7 @@ button {
 
 /* Desktop */
 @media screen and (min-width: 700px) and (max-width: 1600px) {
+<<<<<<< HEAD
     .body {
         background-image: url("./img/backimg.jpg");
         background-attachment: fixed;
@@ -903,3 +1020,280 @@ button {
     }
    
 }
+=======
+        .body {
+            background-image: url("./img/backimg.jpg");
+            background-attachment: fixed;
+            margin: 0;        
+            background-size: cover;
+            overflow-y: hidden;
+        }   
+        #login{
+            background: rgba(255, 255, 255, 0.45);
+            height: auto;
+            margin: auto auto auto 60%;
+            margin: 0 auto 0 60%;
+            top: 0;
+            bottom: 0;
+            position: absolute;
+            padding: 2rem;
+        }
+        .logo-inicio {
+            width: 50%;
+            height: auto;
+            margin: 30% auto auto auto;
+        }
+        /*se agregar clase*/
+        .login-container{
+            background-color: #ffff;
+            border-radius: 1rem;
+            border-style: none;
+            line-height: 0.1rem;
+            padding: 1rem 1rem 1rem 1rem;
+            height: auto;
+            margin: 6rem 3rem 3rem 3rem;        
+        }
+        input {
+            width: 60%;
+            display: block;
+            margin: 1rem auto auto auto;
+            padding: 1rem 1rem 0 1rem;
+            border-style: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.62);
+            background-color: transparent;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            color: #2979FF;
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        #dataregistro>input::placeholder {
+            color: #2979FF;
+        }
+        .buttonWhite {
+            width: 234px;
+            height: 35px;
+            background: #2979FF;
+            border-radius: 10px;
+            border: transparent;
+            color: #FFFFFF;
+            font-size: 1rem;
+            display: block;
+            margin: 2rem auto auto auto;
+            font-weight: 500;
+        }
+        .buttonWhite:hover {
+            cursor: pointer;
+            color: #4F4F4F;       
+        }
+        h4 {
+            color: #4F4F4F;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 1rem 0 1rem .2rem;
+        }
+        h4:hover {
+            color: #2979FF;        
+        }
+        .modal {
+            overflow: hidden;
+        }
+        .modal-content {
+            background: linear-gradient(180deg, #C5E0EF 0%, #C5E0EF 0.01%, #D9EAF4 39.06%, rgba(227, 240, 247, 0.6) 70.83%, rgba(255, 255, 255, 0.24) 100%, rgba(255, 255, 255, 0.2) 100%), #FFFFFF;
+            border-radius: 1rem;
+            width: 30%;
+            height: auto;
+            margin: 6% 5% 4% 65%;    
+        }
+        fieldset {
+            background-color: #EDEDED;
+            border-radius: 1rem;
+            border-style: none;
+            line-height: 0.1rem;
+            padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+            height: auto;
+        }
+        fieldset input {
+            width: 90%;
+        }
+        /* The Close Button */
+        .close-modal {
+            color: #AAAAAA;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .logo {
+            margin: auto;
+            width: 15%;
+            height: auto;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .imgRedonda {
+            border: solid #ffff 3px;
+        }
+        button {
+            font-size: 1rem;  
+        }
+        button:hover {               
+            cursor: pointer;
+            color: #4F4F4F;     
+        }
+        #wall {
+            width: 38%;
+            margin: 5% auto auto auto;
+            position: fixed;
+            left: 30%;
+        }
+        .public {       
+            width: 90%;
+            padding: .2rem;
+            margin: 0.2rem auto .2rem auto; 
+        }
+        #container-post {
+            width: 40%;
+            margin: 13% auto 1% 30%;
+            max-height: 480px;
+            display: inline-grid;
+            scroll-snap-align: end;          
+            /*height: 520px;*/        
+            scroll-padding-top: 5%;
+            padding: 0;        
+            /*padding: 0.5rem 8rem 0.5rem 8rem;*/
+        }
+        #post-note{
+            border-radius: 7px;
+        }
+        #post-note div {        
+            padding: .3rem 0rem 0rem 0rem; 
+        }
+        .container-left {
+            display: inline-grid;
+            width: 27%;
+            margin: 1% auto auto auto;
+            left: 0;
+            position: fixed;
+            padding-left: .5rem;
+        }
+        .container-right {
+            display: inline-grid;
+            width: 27%;
+            margin: 1% auto auto auto;
+            position: fixed;
+            right: 0;
+        }
+        /* barra inferior */
+        #barra {
+        display: block;
+        width: 100%;
+        background: linear-gradient(180deg, #C5E0EF 0%, #C5E0EF 0.01%, #D9EAF4 39.06%, rgba(227, 240, 247, 0.6) 70.83%, rgba(255, 255, 255, 0.24) 100%, rgba(255, 255, 255, 0.2) 100%), #FFFFFF;
+        transform: rotate(180deg);
+    }    
+        #barra span>i {
+            display: none;
+        }
+        .head {
+            /* position: fixed; */
+            top: 0;
+            padding: 0.5rem;
+        }
+        .signout {
+            align-items: flex-end;
+            width: 12%;
+            margin-left: auto;
+            padding: .1rem;
+        }
+        .button2 {       
+            margin: 0 auto auto auto;
+            display: none;      
+        }
+        .profile-picture {
+        display: none;
+        }
+        .fa-chevron-left:before {
+            display: none;
+        }
+        #destinos{
+            display: inline-block;
+            flex-direction: column;
+            height: 440px;
+            overflow-y: scroll;
+            scroll-padding-top: 10%;
+            scroll-snap-align: start;
+        }
+        #destinos::-webkit-scrollbar {
+            width: 8px;     
+            height: 8px;   
+            display: none; 
+        }                
+        #destiny-img:hover {
+            transform: scale(1.1,1.1);
+        }
+        #info-viajero{
+            display: block;
+        }
+       
+        .img-cuadrada{            
+            border-radius: 7px;
+            width: 90%;
+            max-height: 360px;
+            object-fit: cover;
+            
+        }
+        .user-name {            
+            font-size: 1.2rem;           
+            margin: .8rem auto auto auto;
+            text-align: center;
+        }
+        .img-profile {
+            width: 9rem;
+            height: 9rem;
+            border-radius: 50%;
+            margin-right: 40%;
+            margin: auto;
+            display: block;
+        }
+        #box {
+            width: 80%;
+            height: auto;
+            box-sizing: border-box;
+            margin: auto auto .7rem auto;
+            text-align: center;
+        }
+        #destiny-img {
+            justify-self: center;
+            width: 95%;
+            height: 8rem;
+            margin: auto auto auto .5rem;
+            object-fit: cover;
+        }
+        .user-info {
+            font-family: 'roboto';
+            font-size: .9rem;
+            margin: 0 auto 0 auto;
+            text-align: center;
+        }
+         #iconos{
+            text-align: center;
+            margin: auto auto auto auto;
+        }
+        #datos-viajero {
+            height: auto;
+            display: grid;
+            line-height: 1.5rem;
+            margin: 7% auto 7% auto;
+        }
+        h2 {
+            text-align: center;
+            margin: 0.8rem 0 0.8rem 1rem;
+            font-size: 1rem;
+        }
+    }
+>>>>>>> 084d974e66449fe259057c5093eabf8ed6acb6e5

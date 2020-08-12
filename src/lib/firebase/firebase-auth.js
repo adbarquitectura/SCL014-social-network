@@ -16,28 +16,27 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig); 
 
-
+// Ingresa con cuenta google
 const authGoogle = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase
         .auth()
         .signInWithPopup(provider)
         .then(function(result) {
-            // Esto te da un token de acceso de Google. Puede usarlo para acceder a la API de Google
+            // Esto te da un token de acceso de Google. Puede usarlo para acceder a la API de Google.
             var token = result.credential.accessToken;
             // La información de usuario registrada.
             var user = result.user;
             console.log('el usuario se logueo con google');
             console.log(user);
+            // Guardamos la informacion del usuario en el local storage
             localStorage.setItem('user', JSON.stringify({
                 name: user.displayName,
                 email: user.email,
                 photo: user.photoURL,
                 uid: user.uid,
             }));
-
             pushState('#/wall');
-
         }).catch(function(error) {
             // Manejar errores aquí.
             var errorCode = error.code;
@@ -50,11 +49,10 @@ const authGoogle = () => {
             // El tipo firebase.auth.AuthCredential que se utilizó.
             var credential = error.credential;
             console.log(credential);
-            // ...
         });
 };
 
-
+// Crea usuario con email y password
 const createUser = (email, password) => {
     firebase
         .auth()
@@ -71,15 +69,17 @@ const createUser = (email, password) => {
         })
         .catch(function(error) {
             // Manejar errores aquí.
-            document.querySelector('#msgRegister-error').classList.remove('hide');
             document.querySelector('#myModal').style.display = "block";
             var errorCode = error.code;
             var errorMessage = error.message;
+            if (errorCode === 'auth/weak-password') {
+                document.querySelector('#weak-password').classList.remove('hide');
+            }
             console.log(error);
-            // ...
         });
 }
 
+// ingresa con email y password
 const signIn = (email, password) => {
     firebase
         .auth()
@@ -101,11 +101,20 @@ const signIn = (email, password) => {
         })
         .catch(function(error) {
             // Manejar errores aquí.
-            document.querySelector('#msg-error').classList.remove('hide');
             var errorCode = error.code;
             var errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password')
+            {
+                document.querySelector('#sign-wrong-password').classList.remove('hide');
+            } else {
+                document.querySelector('#sign-wrong-password').classList.add('hide');
+            }
+            if (errorCode === 'auth/user-not-found') {
+                document.querySelector('#sign-email-not-found').classList.remove('hide');
+            } else {
+                document.querySelector('#sign-email-not-found').classList.add('hide');
+            }
             console.log(error);
-            // ...
         });
 }
 
@@ -121,7 +130,6 @@ const signOut = () => {
             console.log('Sign-out successful');
             console.log(user);
         }).catch(function(error) {
-
             // An error happened.
         });
 }

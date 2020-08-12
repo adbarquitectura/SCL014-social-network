@@ -1,21 +1,85 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from "../src/lib/index";
+import { 
+  validator,
+  validatorRegister,
+ } from "../src/view-controller/input-validator.js";
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+
+
+describe('validator', () => {
+  it('debe retornar true dado que el email y el password sean vacios', () => {
+    //arrange
+    const email = '';
+    const password = '';
+
+    //act
+    const result = validator(email, password);
+    
+    //assert
+    expect(result).toBe(true)
+  });
+  it('debe retornar false dado que el email y el password no sean vacios', () => {
+    //arrange
+    const email = 'hola@hola.com';
+    const password = '1234567';
+
+    //act
+    const result = validator(email, password);
+    
+    //assert
+    expect(result).toBe(false)
+  });
+  it('debe retornar true dado que el email y el password son espacios en blanco', () => {
+    //arrange
+    const email = '          ';
+    const password = '          ';
+
+    //act
+    const result = validator(email, password);
+    
+    //assert
+    expect(result).toBe(true)
   });
 });
 
-/* Pantalla de inicio
-Si el User / Passwodd = ""  O alguno de los dos campos esta vacio => Muestra mensaje  e inhabilitar boton de iniciar Sesion.
-Si el User / Password = poseen un valor registrado  => Cambia la vista al muro.
-Si el User / Password = No poseen un valor registrado  => Muestra mensaje de invalido.
+describe('validatorRegister', () => {
+  it('debe retornar true cuando los inputs esten vacios', () => {
+    //arrange
+    const email = '';
+    const password = '';
+    const emailValid = false;
+    const passwordValid = false;
 
+    //act
+    const result = validatorRegister(email, password, emailValid, passwordValid);
 
-/* Pantalla de  Registro
-Si el Usuario completa el formulario con  email y contrasena valida => debe mostrar mensaje de  debe validar link desde correo electronico
-y cambia vista.
-Si el correo o contrasena son invalidad => debe mostrar mensaje de alerta para corregir.
-Si los campos estan vacios debe mostrar mensaje de error  e invalidad boton de registar.
-*/
+    //assert
+    expect(result).toBe(true);
+  });
+  it('debe retornar true cuando el email ingresado no sea valido', () => {
+    //arrange
+    const email = '234567n';
+    const password = '234567890';
+    const emailValid = false;
+    const passwordValid = true;
+
+    //act
+    const result = validatorRegister(email, password, emailValid, passwordValid);
+
+    //assert
+    expect(result).toBe(true);
+  });
+  it('debe retornar false cuando el email y el password ingresados sean validos', () => {
+    //arrange
+    const email = 'hola@hola.com';
+    const password = '234567890';
+    const emailValid = true;
+    const passwordValid = true;
+
+    //act
+    const result = validatorRegister(email, password, emailValid, passwordValid);
+
+    //assert
+    expect(result).toBe(false);
+  });
+});
+
