@@ -110,6 +110,7 @@ h5 {
     margin: 2rem auto auto auto;
     font-weight: 500;
 }
+
 a {
     text-decoration: none;
     color: #2979FF;
@@ -274,6 +275,7 @@ input[type="file"] {
 #barra-inferior {
     width: 100%;
     position: fixed;
+    left: 0;
     bottom: 0;
     clear: both;
     box-sizing: border-box;
@@ -717,6 +719,13 @@ button {
 .container-right {
     display : none;
 }
+
+.container-right {
+    display : none;
+}
+
+
+
 
 /* Desktop */
 @media screen and (min-width: 700px) and (max-width: 1600px) {
