@@ -467,9 +467,10 @@ button {
 
 .img-cuadrada{
     margin:auto;
-    width: 95%;
     max-height: 280px;
+    width: 95%;
     object-fit: cover;
+
 }
 
 .like-comment{
@@ -586,22 +587,22 @@ button {
 }
 #datos-viajero {
     height: auto;
-    display: flow-root;
-    line-height: 1.5rem;
-    margin-top: 7%;
+    flex-wrap: wrap;
+    display: flex;
 }
 .user-name {
     font-family: 'roboto';
     font-size: 1.3rem;
     color: #4F4F4F;
-    margin: 0 auto auto 0;
+    margin: .8rem auto auto auto;
+    text-align: center;
 }
 .user-info {
     font-family: 'roboto';
-    font-size: .8rem;
+    font-size: .9rem;
     color: #4F4F4F;
-    margin: 0 auto 0 auto;
-    text-align: start;
+    margin: .5rem auto .5rem auto;
+    text-align: center;
 }
 .img-profile {
     width: 7rem;
@@ -622,12 +623,12 @@ button {
     color: #4F4F4F;
     align-self: auto;
 }
-#intereses { 
+#intereses {
     height: auto;
     box-sizing: border-box;
     display: center;
     overflow: auto;
-} 
+}
 #boxdeinteres {
     height: auto;
     box-sizing: border-box;
@@ -636,29 +637,28 @@ button {
     margin: .2rem auto .2rem auto;
     display: flex;
     align-self:auto;
-    padding: 0.4rem;
 }
 #titulo-interes {
     width: auto;
     height: auto;
-    padding: .5rem; 
+    padding: .5rem;
     margin: auto;
     display: flex;
-    background: #C5E0EF;
-    color: #004ECB;
+    background: #ffffff6a;
+    color: #333333;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 0.8rem;;
+    font-size: 1 rem;;
 }
-#freinds{ 
-    margin-top: auto;    
-    width: auto; 
+#freinds{
+    margin-top: auto;
+    width: auto;
     overflow: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
-    padding: 0.2rem; 
+    padding: 1rem;
 }
-#mostrar-amigos{  
+#mostrar-amigos{
     display: flex;
     height: auto;
     box-sizing: border-box;
@@ -675,23 +675,23 @@ button {
 }
 #container-mypost{
     position: auto;
-    margin-top: 1%;    
-    width: 100%; 
+    margin-top: 1%;
+    width: auto;
     box-sizing: border-box;
-    padding: 0.2rem;
+    padding: 1rem;
     height: auto;
     overflow: auto;
 }
 #boxmypost {
     display: flex;
-    width: 100%;
+    width: auto;
     margin:auto;
-    justify-content: space-around;
+    align-self:auto;
+    vertical-align: middle;
 }
 #mypost-note{
     display: flex;
-    justify-content: flex-end;
-    width: 40%;
+    width: auto;
     height: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
@@ -703,8 +703,7 @@ button {
     margin: 2.5%;
     box-sizing: border-box;
     width: 95%;
-    height: 100px;
-    object-fit: cover;
+    height: auto;
 }
 .mylike-comment{
     font-family: 'roboto';
@@ -712,6 +711,8 @@ button {
     color: #4F4F4F;
     align-items: left;
 }
+
+
 .container-left {
     display : none;
 }
