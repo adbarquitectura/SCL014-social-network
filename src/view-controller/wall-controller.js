@@ -72,16 +72,18 @@ export const wallView = () => {
         pushState('#/destiny');
     });
 
+    const body = document.querySelector('#body');
+    const screen = window.matchMedia('(min-width: 700px)');
+
     const menu = document.querySelector('#show-signout');
     const signOutBar = document.querySelector('#sign-out');
+    const editProfileBar = document.querySelector('#edit-profile');
     menu.addEventListener('click', () => {
         signOutBar.classList.remove('hide');
+        editProfileBar.classList.remove('hide');
     });
 
-    signOutBar.addEventListener('click', () => {
-        signOut();
-        const body = document.querySelector('#body');
-        const screen = window.matchMedia('(min-width: 700px)');
+    editProfileBar.addEventListener('click', () => {               
         const showWallDesktop = () => {
             const myMedia = (screenSize) => {
                 if (screenSize.matches) { // If media query matches
@@ -91,7 +93,28 @@ export const wallView = () => {
                     body.style.backgroundAttachment = 'fixed';
                     body.style.margin = '0';
                     body.style.backgroundSize = 'cover';
+                } else {
+                    /*console.log('screen menor 700px');*/
+                    pushState('#/profile');
+                }
+            };
+            myMedia(screen); // Call listener function at run time
+            screen.addListener(myMedia); // Attach listener function on state changes
+        };
+        showWallDesktop();
+    });
 
+    signOutBar.addEventListener('click', () => {
+        signOut();        
+        const showWallDesktop = () => {
+            const myMedia = (screenSize) => {
+                if (screenSize.matches) { // If media query matches
+                    /*console.log('screen mayor 700px');*/
+                    body.style.background = 'trasparent';
+                    body.style.backgroundImage = 'url("./img/backimg.jpg")';
+                    body.style.backgroundAttachment = 'fixed';
+                    body.style.margin = '0';
+                    body.style.backgroundSize = 'cover';
                 } else {
                     /*console.log('screen menor 700px');*/
                     body.style.background = 'linear-gradient(180deg, #FFFFFF 6.25%, #C5E0EF 35.94%, #2979FF 76.04%)';
