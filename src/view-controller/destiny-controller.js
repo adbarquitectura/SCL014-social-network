@@ -52,7 +52,7 @@ export const destinyView = () => {
                     body.style.backgroundAttachment = ' fixed';
                 }
             };
-            myMedia(screen); // Call listener function at run time
+            myMedia(screen); // Call listener function at run times            
             screen.addListener(myMedia); // Attach listener function on state changes
         };
         showWallDesktop();
