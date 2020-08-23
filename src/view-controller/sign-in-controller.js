@@ -37,7 +37,6 @@ export const signInView = () => {
                 }));
                 getUserByEmail(user.email)
                 .then((userFound) => {
-                    console.log(userFound);
                     if(userFound === undefined){
                         registerUser({
                             user: user.displayName,
@@ -75,12 +74,10 @@ export const signInView = () => {
         const email = document.querySelector('#mail').value;
         const password = document.querySelector('#password').value;
 
-        console.log(email, password);
         signIn(email, password);
-
     });
 
-    // Mostrar modal
+    // Mostrar modal de registro
     const modal = document.querySelector('#myModal');
     const btnOpenModal = document.querySelector('#btn-open-modal-register');
     const btncloseModal = document.querySelector('.close-modal');

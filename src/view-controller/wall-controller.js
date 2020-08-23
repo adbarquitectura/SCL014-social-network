@@ -6,18 +6,21 @@ import {
     obtenerPublish,
     deletePublish,
     getDoc,
-    updateDoc
+    updateDoc,
+    getUserByEmail,
 } from '../lib/firebase/firebase-firestore.js';
 import { postPlantilla } from "../view/post-content-view.js";
 import { postEmptyPlantilla } from "../view/post-empty-view.js"
 import { editOptions } from '../view/edit-view.js';
+import { profileContent } from '../view/profile-view.js';
+import { renderProfileP } from './profile-controller.js';
 
 export const wallView = () => {
 
     document.querySelector('#body').style.background = 'transparent';
 
     const wall = document.createElement('div');
-    wall.setAttribute('id', 'contenedor');
+    wall.setAttribute('idl', 'ccontenedor');
     wall.innerHTML = wallContent;
     document.querySelector('#containerViews').appendChild(wall);
 
@@ -38,7 +41,8 @@ export const wallView = () => {
         const reader = new FileReader();
         reader.onloadend = function () {
             photo = reader.result;
-            console.log('archivo cargado');
+            const loadIcon = document.querySelector('.fa-check-circle');
+            setTimeout(function () { loadIcon.classList.remove('hide'); }, 1000);
         };
 
         reader.readAsDataURL(photoLoaded);
@@ -49,24 +53,35 @@ export const wallView = () => {
     const publish = document.querySelector('#publish');
     publish.addEventListener('click', () => {
         const postText = document.querySelector('#post-title').value;
-        const postImg = photo;
-        const date = new Date().toLocaleString();
-        const user = JSON.parse(localStorage.getItem('user'));
-        savePublish({
-            postText: postText,
-            postImg: postImg,
-            date: date,
-            likes: [],
-            userName: user.name,
-            userEmail: user.email,
-            userUid: user.uid,
-            userPhoto: user.photo
-        }).then(() => {
-            document.querySelector('#post-title').value = "";
-            getPublishPrint();
-        });
+        if (loadPhoto.value !== '') {
+            const postImg = photo;
+            const date = new Date().toLocaleString('en-GB');
+            const user = JSON.parse(localStorage.getItem('user'));
+            getUserByEmail(user.email)
+                .then((userFound) => {
+                    savePublish({
+                        postText: postText,
+                        postImg: postImg,
+                        date: date,
+                        likes: [],
+                        userName: user.name,
+                        user: userFound.user,
+                        userEmail: user.email,
+                        userUid: user.uid,
+                        userPhoto: user.photo
+                    }).then(() => {
+                        document.querySelector('#post-title').value = '';
+                        getPublishPrint();
+                    });
+                    document.querySelector('.fa-check-circle').classList.add('hide');
+                });
+        }  else {            
+            document.querySelector('#reminder-modal').style.display='block';
+            document.querySelector('#close').addEventListener('click', () => {
+                document.querySelector('#reminder-modal').style.display='none';
+            });
+        } 
     });
-
     const btnPost = wall.querySelector('#post');
     btnPost.addEventListener('click', () => {
         pushState('#/destiny');
@@ -86,8 +101,7 @@ export const wallView = () => {
     editProfileBar.addEventListener('click', () => {               
         const showWallDesktop = () => {
             const myMedia = (screenSize) => {
-                if (screenSize.matches) { // If media query matches
-                    /*console.log('screen mayor 700px');*/
+                if (screenSize.matches) { // si el media query coincide
                     body.style.background = 'trasparent';
                     body.style.backgroundImage = 'url("./img/backimg.jpg")';
                     body.style.backgroundAttachment = 'fixed';
@@ -116,15 +130,45 @@ export const wallView = () => {
                     body.style.margin = '0';
                     body.style.backgroundSize = 'cover';
                 } else {
-                    /*console.log('screen menor 700px');*/
                     body.style.background = 'linear-gradient(180deg, #FFFFFF 6.25%, #C5E0EF 35.94%, #2979FF 76.04%)';
-                    body.style.backgroundAttachment = ' fixed';
+                    body.style.backgroundAttachment = 'fixed';
                 }
             };
-            myMedia(screen); // Call listener function at run time
-            screen.addListener(myMedia); // Attach listener function on state changes
+            myMedia(screen);
+            screen.addListener(myMedia); // Agrega un listener que ejecute la funcion cuando se produzca un cambio
         };
         showWallDesktop();
+    });
+
+    editProfileBar.addEventListener('click', () => {
+        const users = JSON.parse(localStorage.getItem('user'));
+        getUserByEmail(users.email)
+            .then((userFound) => {
+                const renderProfile = profileContent(
+                    users.photo ? users.photo : 'img/viaje.png',
+                    userFound.user ? userFound.user : users.name,
+                    userFound.country ? userFound.country : 'Tu pais'
+                );
+                const modalProf = document.querySelector('#my-modal-profile');
+                modalProf.style.display = 'block';
+
+                const modalProfileDesktop = document.querySelector('.modal-content-profile');
+                modalProfileDesktop.innerHTML = renderProfile;
+
+                renderProfileP();
+
+                document.querySelector('.close-modal').addEventListener('click', () => {
+                    modalProf.style.display = 'none';
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (event.target == modalProf) {
+                        modalProf.style.display = 'none';
+                    }
+                });
+
+            });
+
     });
 
     const goTop = document.querySelector('#home');
@@ -179,7 +223,6 @@ export const wallView = () => {
                         });
 
                         parentDiv.querySelector('#delete').addEventListener('click', () => {
-                            console.log(parentDiv.dataset.id);
                             deletePublish(parentDiv.dataset.id)
                                 .then(() => {
                                     parentDiv.querySelector('.modal').classList.add('hide');
@@ -191,7 +234,7 @@ export const wallView = () => {
                         });
                     }
                     // evento para dar like a los post
-                    parentDiv.querySelector('[data-id="likesNumber"]').addEventListener('click', () => {
+                    parentDiv.querySelector('.fa-heart').addEventListener('click', () => {
                         getDoc(parentDiv.dataset.id)
                             .then((doc) => {
                                 const user = JSON.parse(localStorage.getItem('user'));
@@ -231,8 +274,9 @@ export const wallView = () => {
 
     getPublishPrint();
 }
+
 //pinta los post en pantalla
-const renderPublish = (arrayPublish, container) => {
+export const renderPublish = (arrayPublish, container) => {
     const user = JSON.parse(localStorage.getItem('user'));
     arrayPublish.forEach(doc => {
         const data = doc.data();
@@ -244,16 +288,18 @@ const renderPublish = (arrayPublish, container) => {
             data.likes.length,
             data.userPhoto ? data.userPhoto : 'img/viaje.png',
             data.postText,
-            data.userName ? data.userName : data.userEmail,
-            data.date
+            data.userName ? data.userName : data.user,
+            data.date,
         );
         const divPost = document.createElement('div');
         divPost.innerHTML = postRender;
         container.appendChild(divPost);
     });
+
 };
+
 const renderEmptyPublish = (container) => {
     const divPost = document.createElement('div');
     divPost.innerHTML = postEmptyPlantilla;
     container.appendChild(divPost);
-};
+}

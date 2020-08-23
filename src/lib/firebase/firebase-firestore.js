@@ -28,6 +28,23 @@ const getUserByEmail = (email) => {
         });
 };
 
+const getPublishByUid = (uid) => {
+    return db
+        .collection("publicaciones")
+        .where("userUid", "==", uid)
+        .get()
+        .then(function (querySnapshot) {
+            if (querySnapshot.empty === true) {
+               return undefined; 
+            }          
+            return querySnapshot.docs;
+        })
+        .catch(function (error) {
+            console.log("Error al obtener el usuario por: ", uid);
+            console.log(error);
+        });
+};
+
 // Almacena publicaciones de cada usuario
 const obtenerPublish = () => {
     return db
@@ -87,5 +104,6 @@ export {
     deletePublish,
     getDoc,
     getUserByEmail,
-    updateDoc
+    updateDoc,
+    getPublishByUid
 }

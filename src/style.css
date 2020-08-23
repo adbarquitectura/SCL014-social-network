@@ -151,11 +151,24 @@ a {
     box-sizing: border-box;
     margin: 0;
     padding: 1rem;
+    align-items: center;
 }
-
+.hidden {
+    visibility: hidden;
+}
+.search-name {
+    width: 50%;
+    border: solid 1px #2979FF;
+    border-radius: 5px;
+    color: #4F4F4F;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding:.2rem;
+}
 .lupa {
-    margin-left: 1rem;
-    margin-right: 2rem;
+    margin-left: .5rem;
+    margin-right: 1rem;
     color: #4F4F4F;
     font-size: 1.4rem;
 }
@@ -261,10 +274,18 @@ input[type="file"] {
 .disabled {
     opacity:50%
 }
+
+.load {
+    color: green;
+    margin: 0 0 0 .4rem;
+    font-size: 1rem;
+}
+
+
 /*logo de las secciones de la app */
 
 .logo {
-    margin-right: 40%;
+    margin-right: 5%;
     width: 35%;
     height: 25px;
 }
@@ -412,6 +433,7 @@ button {
     overflow-y: scroll; 
     box-sizing: border-box;
     padding: 1.5rem;
+    margin-bottom: 10%;
 }
 
 #container-post::-webkit-scrollbar {
@@ -435,7 +457,7 @@ button {
     /*overflow: hidden;*/
     background: #C5E0EF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 #post-note div {
     display: flex;
@@ -491,7 +513,7 @@ button {
 .edit-input{
     border: solid 1.5px #ffffff;
     border-radius: 8px;
-    width: 90%;
+    min-width: 200px;
     margin: auto 0 auto 0;
     text-align: center;
     padding: .5rem;
@@ -519,7 +541,27 @@ button {
     font-size: 1rem;
     margin: auto auto auto 10%;
 }
-
+.close-btn {
+    width: 35%;
+    height: 28px;
+    background: #2979FF;
+    border-radius: 10px;
+    border: transparent;
+    color: #ffff;
+    font-family: 'roboto';
+    font-size: 1rem;
+    margin: auto;
+}
+.modal-reminder{   
+    background-color: #FEFEFE;
+    margin: auto;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 80%;
+    height: auto;
+    margin-top: 95%;
+    margin-bottom: 5%;
+}
 /*destinos destacados */
 #contenedor {
     margin-bottom: 11%;
@@ -633,8 +675,8 @@ button {
     height: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: .2rem auto .2rem auto;
+    justify-content: flex-start;
+    margin: .2rem auto .2rem .5rem;
     display: flex;
     align-self:auto;
 }
@@ -670,7 +712,7 @@ button {
     height: 4em;
     border-radius: 50%;
     border: solid #ffff 2px;
-    margin: .2rem auto .2rem auto;
+    margin: 0 0 0 .5rem;
     display: flex;
 }
 #container-mypost{
@@ -697,7 +739,7 @@ button {
     flex-wrap: wrap;
     background: #C5E0EF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom: 0.5rem;
+    margin: 1rem;
 }
 .img-mypost{
     margin: 2.5%;
@@ -804,6 +846,14 @@ button {
             cursor: pointer;
             color: #4F4F4F;       
         }
+        #sign-wrong-password>span{
+            font-family: 'Roboto';
+            color: #4f4f4f;
+        }
+        #sign-email-not-found>span{
+            font-family: 'Roboto';
+            color: #4f4f4f;
+        }
         h4 {
             color: #4F4F4F;
             font-family: 'Roboto', sans-serif;
@@ -833,6 +883,14 @@ button {
             width: 30%;
             height: auto;            
         }
+        .modal-reminder{   
+            background-color: #FEFEFE;
+            margin: 25% auto auto 29.5%;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            width: 30%;
+            height: auto;            
+        }
         fieldset {
             background-color: #EDEDED;
             border-radius: 1rem;
@@ -853,7 +911,7 @@ button {
         }
         .logo {            
             margin: auto auto auto 0; 
-            width: 13%;
+            width: 11%;
             height: auto;
         }
         .close-modal:hover,
@@ -893,19 +951,12 @@ button {
             padding: 0;
         }
         #post-note{
-            border-radius: 7px;
+            border-radius: 7px;            
         }
         #post-note div {        
             padding: .3rem 0rem 0rem 0rem; 
         }
-        /*.container-left {
-            display: inline-grid;
-            width: 27%;
-            margin: 1% auto auto auto;
-            left: 0;
-            position: fixed;
-            padding-left: .5rem;
-        }*/
+       
         .container-right {
             display: inline-grid;
             width: 27%;
@@ -923,8 +974,7 @@ button {
         #barra span>i {
             display: none;
         }
-        .head {
-            /* position: fixed; */
+        .head {            
             top: 0;
             padding: 0.5rem;
         }
@@ -1010,7 +1060,7 @@ button {
             height: auto;
             display: grid;
             line-height: 1.5rem;
-            margin: 7% auto 7% auto;
+            margin: 1% auto 1% auto;
         }
         h2 {
             text-align: center;
@@ -1018,4 +1068,49 @@ button {
             
             font-size: 1rem;
         }
+        .edit-input{            
+            min-width: 350px;
+            
+        }
+        #my-modal-profile {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            background-color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.52);
+            transition: opacity .15s linear;
+        }
+        .modal-content-profile {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            width: 40%;
+            height: auto;
+            margin: 1% auto 5% 25%;            
+        }
+        #mypost-note {            
+            width: 40%;                  
+                       
+        }
+        #boxmypost {
+            box-sizing: border-box;
+            justify-content: flex-start; 
+            padding-left: 3rem;
+        }
+        #mostrar-amigos {
+            justify-content: center;
+        }
+        #boxdeinteres {
+            justify-content: center;
+        }
+        .signout>span:hover {           
+            color: #2979FF;
+        }        
+        
 }

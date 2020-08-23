@@ -18,12 +18,26 @@ ${ header }
             <img id="user-photo" src="img/viaje.png" class="profile-picture">
             <input id="post-title" class="inputpublic" type="text" placeholder="¿Que quieres compartir?"/>
             <input type="file" id="load-photo" accept="image/*"/>
+<<<<<<< HEAD
         </div>
+=======
+            <label for="load-photo" class="load-picture">Cargar foto <i class="far fa-image"></i></label>
+            <i class="fas fa-check-circle load hide"></i>
+        </div> 
+    </div>
+>>>>>>> a9ab31efa62af79f662293658c548bbd688c6f55
         <div id="publish"> Publicar </div>
         
         <button id="post" type="button" class="button2">Destinos destacados</button>
     
 </section>
+
+<div id="reminder-modal" class="modal">
+    <section class="modal-reminder">
+        <h3> Debes cargar una foto antes de publicar </h3>
+        <button id="close" class="close-btn"> Ok </button>
+    </section>
+</div>
 
 <section id= "container-post"></section>
 
